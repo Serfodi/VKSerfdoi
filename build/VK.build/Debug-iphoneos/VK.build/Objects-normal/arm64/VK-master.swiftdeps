@@ -1,0 +1,10 @@
+version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
+options: "92912d5818f28544b9668ebfb84c7217ad9dc7ab5808d1a8d0d0bd8f0957d263"
+build_start_time: [1695125628, 566012000]
+build_end_time: [1695125633, 280745000]
+inputs:
+  "/Users/sergejnasybullin/Xcode/iOS/VK/VK/AppDelegate.swift": [1695124545, 895031129]
+  "/Users/sergejnasybullin/Xcode/iOS/VK/VK/AuthViewController/AuthViewController.swift": [1695125565, 571492413]
+  "/Users/sergejnasybullin/Xcode/iOS/VK/VK/FeedViewController/FeedViewController.swift": [1695125475, 334034727]
+  "/Users/sergejnasybullin/Xcode/iOS/VK/VK/SceneDelegate.swift": [1695125628, 270999915]
+  "/Users/sergejnasybullin/Xcode/iOS/VK/VK/Services/AuthService.swift": [1695125318, 355973715]

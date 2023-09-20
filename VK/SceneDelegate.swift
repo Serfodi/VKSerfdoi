@@ -64,7 +64,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
         print(#function)
         
         let feedVC = UIStoryboard(name: String(describing: FeedViewController.self), bundle: nil).instantiateInitialViewController() as! FeedViewController
-        
         let navVC = UINavigationController(rootViewController: feedVC)
         window?.rootViewController = navVC
     }

@@ -37,6 +37,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
         authService = AuthService()
         authService.delegate = self
         
+        if let token = authService.token {
+            print(token)
+            print(authService.isLogin)
+        }
+        
         let authVC = UIStoryboard(name: String(describing: AuthViewController.self), bundle: nil).instantiateInitialViewController() as? AuthViewController
         window?.rootViewController = authVC
         window?.makeKeyAndVisible()

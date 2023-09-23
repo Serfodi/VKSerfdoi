@@ -26,10 +26,12 @@ final class NetworkService: Networking {
         var allParams = params
         allParams["access_token"] = token
         allParams["v"] = API.version
+        
         let url = self.url(from: patch, params: allParams)
         let request = URLRequest(url: url)
         let task = createDataTask(from: request, complition: complition)
         task.resume()
+        
         print(url)
     }
     

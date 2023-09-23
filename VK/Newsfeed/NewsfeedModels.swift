@@ -31,11 +31,21 @@ enum Newsfeed {
 }
 
 struct FeedViewModel {
+    
     struct Cell: FeedCellViewModel {
         var iconImageString: String
         var name: String
         var date: String
         var post: String?
+        var photoAttachement: FeedCellPhotoAttachementViewModel?
+        var sizes: FeedCellSizes
     }
+    
+    struct FeedCellphotoAttachment: FeedCellPhotoAttachementViewModel {
+        var photoUrlString: String?
+        var width: Int
+        var height: Int
+    }
+    
     let cells: [Cell]
 }

@@ -21,6 +21,8 @@
 		177368A72ABC9738008F85EB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177368A62ABC9738008F85EB /* API.swift */; };
 		177368AE2ABC97FF008F85EB /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177368AD2ABC97FF008F85EB /* FeedResponse.swift */; };
 		17A3FEA12ABE23C6005F0DB9 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3FEA02ABE23C6005F0DB9 /* WebImageView.swift */; };
+		17A3FEA32ABF2BEB005F0DB9 /* NewsfeedCellLayoutCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3FEA22ABF2BEB005F0DB9 /* NewsfeedCellLayoutCalculator.swift */; };
+		17A3FEA52ABF38C7005F0DB9 /* String + Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3FEA42ABF38C7005F0DB9 /* String + Height.swift */; };
 		B01E9D0A25028B3B00E6F595 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01E9D0925028B3B00E6F595 /* VKSdkFramework.framework */; };
 		B01E9D0B25028B3B00E6F595 /* VKSdkFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B01E9D0925028B3B00E6F595 /* VKSdkFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B01E9D0E25028DCE00E6F595 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E9D0D25028DCE00E6F595 /* AuthService.swift */; };
@@ -61,6 +63,8 @@
 		177368A62ABC9738008F85EB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		177368AD2ABC97FF008F85EB /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
 		17A3FEA02ABE23C6005F0DB9 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		17A3FEA22ABF2BEB005F0DB9 /* NewsfeedCellLayoutCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCellLayoutCalculator.swift; sourceTree = "<group>"; };
+		17A3FEA42ABF38C7005F0DB9 /* String + Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Height.swift"; sourceTree = "<group>"; };
 		B01E9D0925028B3B00E6F595 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
 		B01E9D0D25028DCE00E6F595 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B03C1B1A25017E75003B3688 /* VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,7 @@
 			children = (
 				1742A2412ABDD34600E2DA07 /* NewsfeedCell.swift */,
 				1742A2432ABDD41A00E2DA07 /* NewsfeedCell.xib */,
+				17A3FEA22ABF2BEB005F0DB9 /* NewsfeedCellLayoutCalculator.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				17A3FEA02ABE23C6005F0DB9 /* WebImageView.swift */,
+				17A3FEA42ABF38C7005F0DB9 /* String + Height.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				177368A32ABC96E5008F85EB /* NetworkDataFetcher.swift in Sources */,
+				17A3FEA52ABF38C7005F0DB9 /* String + Height.swift in Sources */,
 				1742A22F2ABDBE3E00E2DA07 /* NewsfeedViewController.swift in Sources */,
 				B03C1B2225017E75003B3688 /* AuthViewController.swift in Sources */,
 				B03C1B1E25017E75003B3688 /* AppDelegate.swift in Sources */,
@@ -292,6 +299,7 @@
 				B03C1B2025017E75003B3688 /* SceneDelegate.swift in Sources */,
 				B01E9D0E25028DCE00E6F595 /* AuthService.swift in Sources */,
 				1742A22E2ABDBE3E00E2DA07 /* NewsfeedModels.swift in Sources */,
+				17A3FEA32ABF2BEB005F0DB9 /* NewsfeedCellLayoutCalculator.swift in Sources */,
 				17A3FEA12ABE23C6005F0DB9 /* WebImageView.swift in Sources */,
 				177368A72ABC9738008F85EB /* API.swift in Sources */,
 				1742A22C2ABDBE3E00E2DA07 /* NewsfeedWorker.swift in Sources */,

@@ -18,6 +18,7 @@ class AuthViewController: UIViewController {
     }
 
     @IBAction func signInTouch(_ sender: UIButton) {
+        authService.logoutSession()
         authService.wakeUpSession()
     }
     

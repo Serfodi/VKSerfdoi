@@ -8,18 +8,30 @@
 
 import UIKit
 
+protocol NewsfeedCodeCellDelegate: AnyObject {
+    func revealPost(for cell: NewsfeedCodeCell)
+}
+
 final class NewsfeedCodeCell: UITableViewCell {
 
     static let reuseId = "NewsfeedCodeCell"
     
+    weak var delegate: NewsfeedCodeCellDelegate?
+    
+    private struct StyleCell {
+        static let cardColor = UIColor(white: 0.13, alpha: 1)
+        static let fountColor = UIColor(white: 0.97, alpha: 1)
+    }
+    
     let cardView: UIView = {
         let view = UIView()
-        view.backgroundColor = Constanst.cardViewColor
+        view.backgroundColor = StyleCell.cardColor
         view.layer.cornerRadius = 32
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     
     // second layer
     
@@ -32,8 +44,14 @@ final class NewsfeedCodeCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = Constanst.postLabelFount
-        label.textColor = .white
+        label.textColor = StyleCell.fountColor
         return label
+    }()
+    
+    let moreButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "more"), for: .normal)
+        return button
     }()
     
     let postImageView: WebImageView = {
@@ -43,6 +61,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         imageView.backgroundColor = .lightGray
         return imageView
     }()
+    
     
     // third layer on profile view
     
@@ -57,7 +76,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Constanst.nameLabelFount
-        label.textColor = .white
+        label.textColor = StyleCell.fountColor
         return label
     }()
     
@@ -70,22 +89,20 @@ final class NewsfeedCodeCell: UITableViewCell {
     }()
     
     
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .clear
-        
+        moreButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
+       
         overlayFirstLayer()
         overlaySecondLayer()
         overlayThirdLayerOnTopView()
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    @objc func moreTextButtonTouch() {
+        delegate?.revealPost(for: self)
     }
-    
     
     func set(viewModel: FeedCellViewModel) {
         iconImageView.set(imageURL: viewModel.iconImageString)
@@ -93,9 +110,10 @@ final class NewsfeedCodeCell: UITableViewCell {
         dateLabel.text = viewModel.date
         postlabel.text = viewModel.post
         
-        postImageView.frame = viewModel.sizes.attachmentFramge
+        postImageView.frame = viewModel.sizes.attachmentFrame
         postlabel.frame = viewModel.sizes.postLabelFrame
-        profileView.frame = viewModel.sizes.bottomView
+        profileView.frame = viewModel.sizes.profileViewFrame
+        moreButton.frame = viewModel.sizes.moreButtonFrame
         
         if let photoAttachment = viewModel.photoAttachement {
             postImageView.set(imageURL: photoAttachment.photoUrlString)
@@ -104,8 +122,6 @@ final class NewsfeedCodeCell: UITableViewCell {
             postImageView.isHidden = true
         }
     }
-    
-    
     
     func overlayThirdLayerOnTopView() {
         profileView.addSubview(iconImageView)
@@ -133,11 +149,11 @@ final class NewsfeedCodeCell: UITableViewCell {
         iconImageView.layer.cornerRadius = 20
     }
     
-    
     func overlaySecondLayer() {
         cardView.addSubview(postImageView)
         cardView.addSubview(postlabel)
         cardView.addSubview(profileView)
+        contentView.addSubview(moreButton)
     }
     
     func overlayFirstLayer() {
@@ -146,15 +162,13 @@ final class NewsfeedCodeCell: UITableViewCell {
         cardView.fillSuperview(padding: Constanst.cardInserts)
     }
     
-    
-    
-    
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func prepareForReuse() {
+        iconImageView.set(imageURL: nil)
+        postImageView.set(imageURL: nil)
     }
 
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 }

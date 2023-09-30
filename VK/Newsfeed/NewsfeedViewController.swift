@@ -12,7 +12,7 @@ protocol NewsfeedDisplayLogic: AnyObject {
     func displaySomething(viewModel: Newsfeed.Something.ViewModel.ViewModelType)
 }
 
-class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
+class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCodeCellDelegate {
     
     var interactor: NewsfeedBusinessLogic?
     var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
@@ -52,6 +52,9 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
         super.viewDidLoad()
         setup()
         
+        tableView.allowsSelection = false
+        tableView.delaysContentTouches = false
+        
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         view.backgroundColor = #colorLiteral(red: 0.03529411765, green: 0.03529411765, blue: 0.03529411765, alpha: 1)
@@ -71,6 +74,17 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
             tableView.reloadData()
         }
     }
+    
+    // MARK: NewsfeedCodeCellDelegate
+    
+    func revealPost(for cell: NewsfeedCodeCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let cellViewModel = feedViewModel.cells[indexPath.row]
+        interactor?.doSomething(request: Newsfeed.Something.Request.RequestType.revealPostId(postId: cellViewModel.postId))
+    }
+    
+    
+    
 }
 
 extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -81,11 +95,20 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCodeCell.reuseId, for: indexPath) as! NewsfeedCodeCell
         let cellViewModel = feedViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
+        cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         feedViewModel.cells[indexPath.row].sizes.totalHeight
+    }
+ 
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        feedViewModel.cells[indexPath.row].sizes.totalHeight
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        false
     }
     
 }

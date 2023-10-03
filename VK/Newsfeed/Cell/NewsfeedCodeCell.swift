@@ -51,6 +51,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     let moreButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "more"), for: .normal)
+        button.tintColor = #colorLiteral(red: 0.4431372549, green: 0.4745098039, blue: 0.5019607843, alpha: 1)
         return button
     }()
     
@@ -62,6 +63,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         return imageView
     }()
     
+    let galleryCollectionVeiw = GalleryCollectionView()
     
     // third layer on profile view
     
@@ -110,17 +112,28 @@ final class NewsfeedCodeCell: UITableViewCell {
         dateLabel.text = viewModel.date
         postlabel.text = viewModel.post
         
-        postImageView.frame = viewModel.sizes.attachmentFrame
+        
         postlabel.frame = viewModel.sizes.postLabelFrame
         profileView.frame = viewModel.sizes.profileViewFrame
         moreButton.frame = viewModel.sizes.moreButtonFrame
-        
-        if let photoAttachment = viewModel.photoAttachement {
+                
+        if let photoAttachment = viewModel.photoAttachements.first, viewModel.photoAttachements.count == 1 {
             postImageView.set(imageURL: photoAttachment.photoUrlString)
             postImageView.isHidden = false
+            galleryCollectionVeiw.isHidden = true
+            postImageView.frame = viewModel.sizes.attachmentFrame
+        } else if viewModel.photoAttachements.count > 1 {
+            galleryCollectionVeiw.frame = viewModel.sizes.attachmentFrame
+            galleryCollectionVeiw.isHidden = false
+            postImageView.isHidden = true
+            galleryCollectionVeiw.set(photos: viewModel.photoAttachements)
         } else {
+            galleryCollectionVeiw.isHidden = true
             postImageView.isHidden = true
         }
+        
+        
+        
     }
     
     func overlayThirdLayerOnTopView() {
@@ -153,6 +166,8 @@ final class NewsfeedCodeCell: UITableViewCell {
         cardView.addSubview(postImageView)
         cardView.addSubview(postlabel)
         cardView.addSubview(profileView)
+//        cardView.addSubview(galleryCollectionVeiw)
+        contentView.addSubview(galleryCollectionVeiw)
         contentView.addSubview(moreButton)
     }
     
@@ -165,6 +180,9 @@ final class NewsfeedCodeCell: UITableViewCell {
     override func prepareForReuse() {
         iconImageView.set(imageURL: nil)
         postImageView.set(imageURL: nil)
+        iconImageView.image = nil
+        postImageView.image = nil
+        
     }
 
     

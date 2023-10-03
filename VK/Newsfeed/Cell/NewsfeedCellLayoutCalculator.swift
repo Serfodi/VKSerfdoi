@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol FeedCellLayoutCalculatorProtocol {
-    func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachementViewModel?, isFullSizePost: Bool) -> FeedCellSizes
+    func sizes(postText: String?, photoAttachments: [FeedCellPhotoAttachementViewModel], isFullSizePost: Bool) -> FeedCellSizes
 }
 
 
@@ -26,9 +26,11 @@ final class NewsfeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
     
     private let screenWidth: CGFloat
     
+    
     init(screenWidth: CGFloat) {
         self.screenWidth = screenWidth
     }
+    
     
     /**
      Вычисления размера поста.
@@ -41,7 +43,7 @@ final class NewsfeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
      - isFullSizePost: Открыт ли текст поста полностью
      
      */
-    func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachementViewModel?, isFullSizePost: Bool) -> FeedCellSizes {
+    func sizes(postText: String?, photoAttachments: [FeedCellPhotoAttachementViewModel], isFullSizePost: Bool) -> FeedCellSizes {
         
         let cardViewWidth = screenWidth - Constanst.cardInserts.left - Constanst.cardInserts.right
         
@@ -53,10 +55,31 @@ final class NewsfeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         var photoAttachmentFrame = CGRect.zero
         
         // calculations size photoAttachment
+        /*
         if let attechment = photoAttachment {
             let ration: CGFloat = CGFloat( Float(attechment.height) / Float(attechment.width) )
             photoAttachmentFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * ration)
         }
+         */
+        
+        if let attechment = photoAttachments.first {
+            let ration: CGFloat = CGFloat( Float(attechment.height) / Float(attechment.width) )
+            
+            if photoAttachments.count == 1 {
+                photoAttachmentFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * ration)
+            } else if photoAttachments.count > 1 {
+                
+                 var photos = [CGSize]()
+                for photo in photoAttachments {
+                    let photoSize = CGSize(width: CGFloat(photo.width), height: CGFloat(photo.height))
+                    photos.append(photoSize)
+                }
+                let rowHight = RowLayout.rowHeightConter(collectionViewWidth: cardViewWidth, photosArray: photos)
+                photoAttachmentFrame.size = CGSize(width: cardViewWidth, height: rowHight!)
+            }
+        }
+        
+        
         
         
         // MARK: Работа с postLabelFrame
@@ -98,8 +121,9 @@ final class NewsfeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         // calculations position button
         let center = (cardViewWidth - Constanst.moreTextButtonSize.width) / 2
         // for text label
-        let morelextButtonOrigin = CGPoint(x: center, y: postLabelFrame.maxY)
+        let morelextButtonOrigin = CGPoint(x: center, y: postLabelFrame.maxY + 6)
         let moreButtonFrame = CGRect(origin: morelextButtonOrigin, size: moreButtonSize)
+        
         
         
         // MARK: Работа с bottomFrame и position postLabelFrame

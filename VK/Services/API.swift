@@ -15,4 +15,5 @@ struct API {
     static let httpVersion = "HTTP/1.1"
     
     static let patch = "/method/newsfeed.get"
+    static let user = "/method/users.get"
 }

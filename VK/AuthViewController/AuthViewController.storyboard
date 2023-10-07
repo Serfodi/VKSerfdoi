@@ -3,9 +3,8 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,31 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEj-4K-1FZ">
-                                <rect key="frame" x="145.5" y="309" width="84" height="49"/>
+                                <rect key="frame" x="107.5" y="293.5" width="160" height="80"/>
+                                <color key="backgroundColor" red="0.50196078431372548" green="0.67843137254901964" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="P4o-R4-wWr"/>
-                                    <constraint firstAttribute="height" constant="49" id="bVV-ng-e1t"/>
+                                    <constraint firstAttribute="width" secondItem="YEj-4K-1FZ" secondAttribute="height" multiplier="2:1" id="40V-6f-dwd"/>
+                                    <constraint firstAttribute="width" constant="160" id="P4o-R4-wWr"/>
+                                    <constraint firstAttribute="height" constant="80" id="bVV-ng-e1t"/>
                                 </constraints>
-                                <state key="normal" title="войти"/>
+                                <state key="normal" title="войти">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="signInTouch:" destination="74S-Ap-TVN" eventType="touchUpInside" id="8zU-i4-kME"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGz-5I-cpT">
-                                <rect key="frame" x="146" y="549" width="73" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="выйти"/>
-                                <connections>
-                                    <action selector="logOutTouch:" destination="74S-Ap-TVN" eventType="touchUpInside" id="oHK-ar-heH"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CnH-Hx-shu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.035294117649999998" green="0.035294117649999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="YEj-4K-1FZ" firstAttribute="centerX" secondItem="KvA-7g-upp" secondAttribute="centerX" id="GiP-Ur-d5s"/>
                             <constraint firstItem="YEj-4K-1FZ" firstAttribute="centerY" secondItem="KvA-7g-upp" secondAttribute="centerY" id="JV2-he-s4s"/>
                             <constraint firstItem="YEj-4K-1FZ" firstAttribute="centerX" secondItem="KvA-7g-upp" secondAttribute="centerX" id="XPJ-OF-X4n"/>
+                            <constraint firstItem="YEj-4K-1FZ" firstAttribute="centerY" secondItem="KvA-7g-upp" secondAttribute="centerY" id="wSi-Kk-Pg3"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -51,9 +47,4 @@
             <point key="canvasLocation" x="237.59999999999999" y="136.28185907046478"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

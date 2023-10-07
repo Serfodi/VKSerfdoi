@@ -11,19 +11,28 @@ import UIKit
 
 struct Constanst {
     
+    static let profileViewHight: CGFloat = 72
+    static let profileImageHight: CGFloat = 40
+    
     static let cardInserts = UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0)
-    static let profileViewHight: CGFloat = 64
+    static let postInserts = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    static let textInserts = UIEdgeInsets(top: 0, left: 0, bottom: 18, right: 0)
     
-    static let postInserts = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+    /// Внутрений радиус
+    ///
+    /// Внутрений радиус = Внешний радиус - отступ от границы
+    static let radius = profileViewHight / 2 - max(postInserts.left, postInserts.right)
     
-    static let nameLabelFount = UIFont(name: "SF Pro Text", size: 15)
+    // Для текста поста
+    static let nameLabelFount = UIFont(name: "SF Pro Text", size: 15) // Добавть жирный текст
     static let dateLabelFount = UIFont(name: "SF Pro Text", size: 12)
     static let postLabelFount = UIFont(name: "SF Pro Text", size: 15)
 
-    static let labelSecondFountColor: UIColor = #colorLiteral(red: 0.4862745098, green: 0.4862745098, blue: 0.4862745098, alpha: 1)
+    // Когда нужно добовлять кнопку еще:
+    static let minifiedPostLimitLines: CGFloat = 8
+    static let minifiedPostLines: CGFloat = 7
     
-    static let minifiedPostLimitLines: CGFloat = 10
-    static let minifiedPostLines: CGFloat = 8
+    static let moreTextButtonHeight = Self.profileViewHight / 2
+    static let moreTextButtonSize = CGSize(width: 140, height: moreTextButtonHeight)
     
-    static let moreTextButtonSize = CGSize(width: 140, height: 20)
 }

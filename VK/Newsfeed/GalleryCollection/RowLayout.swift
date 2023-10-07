@@ -16,9 +16,9 @@ class RowLayout: UICollectionViewLayout {
     
     weak var delegate: RowLayoutDelegate!
     
-    static var numberOfRows = 2
+    static var numberOfRows = 1
     
-    fileprivate var cellPadding: CGFloat = 12
+    fileprivate var cellPadding: CGFloat = Constanst.postInserts.left
     
     fileprivate var cache = [UICollectionViewLayoutAttributes]()
     

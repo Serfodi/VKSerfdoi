@@ -23,9 +23,15 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     weak var delegate:AuthServiceDelegate?
     
+    
     var token: String? {
         return VKSdk.accessToken()?.accessToken
     }
+    
+    var userId : String? {
+        VKSdk.accessToken().userId
+    }
+    
     
     var isLogin: Bool {
         return VKSdk.isLoggedIn()

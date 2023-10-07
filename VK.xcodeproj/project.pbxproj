@@ -32,6 +32,10 @@
 		17A3FEA12ABE23C6005F0DB9 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3FEA02ABE23C6005F0DB9 /* WebImageView.swift */; };
 		17A3FEA32ABF2BEB005F0DB9 /* NewsfeedCellLayoutCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3FEA22ABF2BEB005F0DB9 /* NewsfeedCellLayoutCalculator.swift */; };
 		17A3FEA52ABF38C7005F0DB9 /* String + Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3FEA42ABF38C7005F0DB9 /* String + Height.swift */; };
+		17EF03912AD1752D00AFA9EE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EF03902AD1752D00AFA9EE /* TitleView.swift */; };
+		17EF03932AD1790F00AFA9EE /* InsetableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EF03922AD1790F00AFA9EE /* InsetableTextField.swift */; };
+		17EF03952AD1805200AFA9EE /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EF03942AD1805200AFA9EE /* UserResponse.swift */; };
+		17EF03972AD1B67200AFA9EE /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EF03962AD1B67200AFA9EE /* UIViewExtension.swift */; };
 		B01E9D0A25028B3B00E6F595 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01E9D0925028B3B00E6F595 /* VKSdkFramework.framework */; };
 		B01E9D0B25028B3B00E6F595 /* VKSdkFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B01E9D0925028B3B00E6F595 /* VKSdkFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B01E9D0E25028DCE00E6F595 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E9D0D25028DCE00E6F595 /* AuthService.swift */; };
@@ -76,13 +80,17 @@
 		178169A12AC47B9000169757 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		178169A72AC47E3E00169757 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		178169A92AC47E4A00169757 /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
-		17873AE22AC85B4000A037F6 /* BlurGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlurGradientView.swift; path = VK/BlurGradientView.swift; sourceTree = SOURCE_ROOT; };
+		17873AE22AC85B4000A037F6 /* BlurGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlurGradientView.swift; path = VK/Newsfeed/BlurGradientView.swift; sourceTree = SOURCE_ROOT; };
 		17873AE52AC8615600A037F6 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		17873AE82AC862D400A037F6 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		17873AEA2AC8895200A037F6 /* RowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowLayout.swift; sourceTree = "<group>"; };
 		17A3FEA02ABE23C6005F0DB9 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		17A3FEA22ABF2BEB005F0DB9 /* NewsfeedCellLayoutCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCellLayoutCalculator.swift; sourceTree = "<group>"; };
 		17A3FEA42ABF38C7005F0DB9 /* String + Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Height.swift"; sourceTree = "<group>"; };
+		17EF03902AD1752D00AFA9EE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		17EF03922AD1790F00AFA9EE /* InsetableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetableTextField.swift; sourceTree = "<group>"; };
+		17EF03942AD1805200AFA9EE /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		17EF03962AD1B67200AFA9EE /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		B01E9D0925028B3B00E6F595 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
 		B01E9D0D25028DCE00E6F595 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B03C1B1A25017E75003B3688 /* VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +118,8 @@
 		1742A2242ABDBD6900E2DA07 /* Newsfeed */ = {
 			isa = PBXGroup;
 			children = (
+				17EF038F2AD1751200AFA9EE /* TitleView */,
+				17F3379A2ACD8FD100CC8B7A /* View */,
 				1742A23E2ABDC88700E2DA07 /* NewsfeedViewController.storyboard */,
 				1742A2292ABDBE3E00E2DA07 /* NewsfeedViewController.swift */,
 				1742A2402ABDD33400E2DA07 /* Cell */,
@@ -138,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				177368AD2ABC97FF008F85EB /* FeedResponse.swift */,
+				17EF03942AD1805200AFA9EE /* UserResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,8 +187,26 @@
 				17A3FEA02ABE23C6005F0DB9 /* WebImageView.swift */,
 				17A3FEA42ABF38C7005F0DB9 /* String + Height.swift */,
 				1781699F2AC45FD100169757 /* Constraints.swift */,
+				17EF03962AD1B67200AFA9EE /* UIViewExtension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		17EF038F2AD1751200AFA9EE /* TitleView */ = {
+			isa = PBXGroup;
+			children = (
+				17EF03902AD1752D00AFA9EE /* TitleView.swift */,
+				17EF03922AD1790F00AFA9EE /* InsetableTextField.swift */,
+			);
+			path = TitleView;
+			sourceTree = "<group>";
+		};
+		17F3379A2ACD8FD100CC8B7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17873AE22AC85B4000A037F6 /* BlurGradientView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		B01E9D0825028B3B00E6F595 /* Frameworks */ = {
@@ -226,7 +255,6 @@
 				B01E9D0F25028DDA00E6F595 /* Services */,
 				1742A2242ABDBD6900E2DA07 /* Newsfeed */,
 				17A3FE9F2ABE237D005F0DB9 /* Helpers */,
-				17873AE22AC85B4000A037F6 /* BlurGradientView.swift */,
 				B03C1B2625017E76003B3688 /* Assets.xcassets */,
 				178169AB2AC47E7200169757 /* Fount */,
 				B03C1B2825017E76003B3688 /* LaunchScreen.storyboard */,
@@ -342,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17EF03932AD1790F00AFA9EE /* InsetableTextField.swift in Sources */,
 				177368A32ABC96E5008F85EB /* NetworkDataFetcher.swift in Sources */,
 				17873AE92AC862D400A037F6 /* GalleryCollectionViewCell.swift in Sources */,
 				17A3FEA52ABF38C7005F0DB9 /* String + Height.swift in Sources */,
@@ -352,7 +381,9 @@
 				1742A22B2ABDBE3E00E2DA07 /* NewsfeedPresenter.swift in Sources */,
 				1742A22D2ABDBE3E00E2DA07 /* NewsfeedRouter.swift in Sources */,
 				B03C1B2025017E75003B3688 /* SceneDelegate.swift in Sources */,
+				17EF03952AD1805200AFA9EE /* UserResponse.swift in Sources */,
 				B01E9D0E25028DCE00E6F595 /* AuthService.swift in Sources */,
+				17EF03912AD1752D00AFA9EE /* TitleView.swift in Sources */,
 				1742A22E2ABDBE3E00E2DA07 /* NewsfeedModels.swift in Sources */,
 				17A3FEA32ABF2BEB005F0DB9 /* NewsfeedCellLayoutCalculator.swift in Sources */,
 				178169A22AC47B9000169757 /* Constants.swift in Sources */,
@@ -363,6 +394,7 @@
 				177368A72ABC9738008F85EB /* API.swift in Sources */,
 				1742A22C2ABDBE3E00E2DA07 /* NewsfeedWorker.swift in Sources */,
 				177368AE2ABC97FF008F85EB /* FeedResponse.swift in Sources */,
+				17EF03972AD1B67200AFA9EE /* UIViewExtension.swift in Sources */,
 				177368A42ABC96E5008F85EB /* NetworkService.swift in Sources */,
 				1742A2302ABDBE3E00E2DA07 /* NewsfeedInteractor.swift in Sources */,
 				17873AE42AC85FE400A037F6 /* NewsfeedCell.swift in Sources */,

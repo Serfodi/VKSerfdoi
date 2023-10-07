@@ -32,8 +32,7 @@ class  GalleryCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 32 - 6
-        
+        imageView.layer.cornerRadius = Constanst.radius
     }
     
     

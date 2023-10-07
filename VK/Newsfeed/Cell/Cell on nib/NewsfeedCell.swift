@@ -22,6 +22,8 @@ protocol FeedCellSizes {
     var attachmentFrame: CGRect { get }
     var profileViewFrame: CGRect { get }
     var moreButtonFrame: CGRect { get }
+    var moreGradientView: CGRect { get }
+    var locationGradient: [NSNumber] { get }
     var totalHeight: CGFloat { get }
 }
 

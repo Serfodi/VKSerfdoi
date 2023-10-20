@@ -28,6 +28,9 @@ struct Constanst {
     static let dateLabelFount = UIFont(name: "SF Pro Text", size: 12)
     static let postLabelFount = UIFont(name: "SF Pro Text", size: 15)
 
+    static let dataLabelColor = #colorLiteral(red: 0.4862745098, green: 0.4862745098, blue: 0.4862745098, alpha: 1)
+    static let secondColor = #colorLiteral(red: 0.5019607843, green: 0.6784313725, blue: 0.862745098, alpha: 1)
+    
     // Когда нужно добовлять кнопку еще:
     static let minifiedPostLimitLines: CGFloat = 8
     static let minifiedPostLines: CGFloat = 7

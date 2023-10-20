@@ -37,11 +37,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
         authService = AuthService()
         authService.delegate = self
         
-        if let token = authService.token {
-            print(token)
-            print(authService.isLogin)
-        }
-        
         let authVC = UIStoryboard(name: String(describing: AuthViewController.self), bundle: nil).instantiateInitialViewController() as? AuthViewController
         window?.rootViewController = authVC
         window?.makeKeyAndVisible()
@@ -68,9 +63,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
     func authServiceSignIn() {
         print(#function)
         
+        /*
         let feedVC = UIStoryboard(name: String(describing: NewsfeedViewController.self), bundle: nil).instantiateInitialViewController() as! NewsfeedViewController
         let navVC = UINavigationController(rootViewController: feedVC)
-        window?.rootViewController = navVC
+        let chatVC = ChatViewController()
+        let navChatVC =  UINavigationController(rootViewController: chatVC)
+        let tabVC = UITabBarController()
+        tabVC.viewControllers = [navVC, chatVC]
+        
+        */
+        
+        window?.rootViewController = TabBarController()
     }
     
     func authServiceDidSignInFail() {

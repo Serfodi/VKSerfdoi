@@ -73,6 +73,7 @@ final class NewsfeedCodeCell: UITableViewCell {
         textView.textContainerInset = UIEdgeInsets.init(top: 0, left: -padding, bottom: 0, right: -padding)
         
         textView.dataDetectorTypes = .all
+        textView.tintColor = Constanst.secondColor
         
         return textView
     }()
@@ -170,9 +171,6 @@ final class NewsfeedCodeCell: UITableViewCell {
             galleryCollectionVeiw.isHidden = true
             postImageView.isHidden = true
         }
-        
-        
-        
     }
     
     func overlayThirdLayerOnTopView() {
@@ -210,7 +208,6 @@ final class NewsfeedCodeCell: UITableViewCell {
     
     func overlayFirstLayer() {
         contentView.addSubview(cardView)
-//        addSubview(cardView)
         // add constraint
         cardView.fillSuperview(padding: Constanst.cardInserts)
     }
@@ -223,7 +220,6 @@ final class NewsfeedCodeCell: UITableViewCell {
         
     }
 
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

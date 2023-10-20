@@ -14,15 +14,21 @@ protocol NewsfeedDisplayLogic: AnyObject {
 
 class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCodeCellDelegate {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    
     var interactor: NewsfeedBusinessLogic?
     var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
     
-    private var feedViewModel = FeedViewModel(cells: [])
-    
+    private var feedViewModel = FeedViewModel(cells: [], footerTitle: nil)
     
     @IBOutlet weak var tableView: UITableView!
     
     private var titleView = TitleView()
+    
+    private lazy var footerView = FooterView()
     
     private var blurGradientView: BlurGradientView = {
         let blurGradientView = BlurGradientView()
@@ -33,6 +39,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
         ]
         return blurGradientView
     }()
+    
     
     private var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -75,35 +82,31 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
         
         setupTopBars()
         setupTable()
-//        setupBlure()
-        
-//        self.view.insertSubview(blurGradientView, aboveSubview: tableView)
-        
+        setupBlure()
         
         interactor?.doSomething(request: .getNewsfeed)
         interactor?.doSomething(request: .getUser)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        var height: CGFloat = (self.navigationController?.navigationBar.frame.height)!
-        height += getStatusBarHeight()
-        
-        blurGradientView.frame = CGRect(origin: .zero,
-                                        size: CGSize(width: UIScreen.main.bounds.width,
-                                                     height: height))
-        
-        self.navigationController?.navigationBar.setBackgroundImage(blurGradientView.snapshot, for: .default)
+        let height = getStatusBarFrame().size.height * 2
+        let size = CGSize(width: getStatusBarFrame().size.width, height: height)
+        blurGradientView.frame = CGRect(origin: .zero, size: size)
     }
     
-    // временно
-    func getStatusBarHeight() -> CGFloat {
-        var statusBarHeight: CGFloat = 0
+
+    func setupBlure() {
+        self.view.addSubview(blurGradientView)
+    }
+    
+    
+    func getStatusBarFrame() -> CGRect {
+        var statusBarFrame: CGRect = .zero
         let scenes = UIApplication.shared.connectedScenes
         let windowScene = scenes.first as? UIWindowScene
         let window = windowScene?.windows.first
-        statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        return statusBarHeight
+        statusBarFrame = window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
+        return statusBarFrame
     }
     
     
@@ -111,11 +114,9 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         view.backgroundColor = #colorLiteral(red: 0.03529411765, green: 0.03529411765, blue: 0.03529411765, alpha: 1)
-        
-//        tableView.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
         tableView.register(NewsfeedCodeCell.self, forCellReuseIdentifier: NewsfeedCodeCell.reuseId)
-        
         tableView.addSubview(refreshControl)
+        tableView.tableFooterView = footerView
     }
     
     
@@ -134,22 +135,21 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
     }
     
     
-    
-    
-    
     // MARK: Display Something
     
     func displaySomething(viewModel: Newsfeed.Something.ViewModel.ViewModelType) {
         switch viewModel {
         case .displayNewsfeed(feedViewModel: let feedViewModel):
             self.feedViewModel = feedViewModel
+            footerView.setTitle(feedViewModel.footerTitle)
             tableView.reloadData()
             refreshControl.endRefreshing()
         case .displayUser(userViewModel: let userViewModel):
             self.titleView.set(userViewModel: userViewModel)
+        case .displayFooterLoader:
+            footerView.showLoader()
         }
     }
-    
     
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -159,9 +159,6 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
     }
     
     
-    
-    
-    
     // MARK: NewsfeedCodeCellDelegate
     
     func revealPost(for cell: NewsfeedCodeCell) {
@@ -169,8 +166,6 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCo
         let cellViewModel = feedViewModel.cells[indexPath.row]
         interactor?.doSomething(request: Newsfeed.Something.Request.RequestType.revealPostId(postId: cellViewModel.postId))
     }
-    
-    
     
 }
 

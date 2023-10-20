@@ -30,7 +30,7 @@
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Zfj-L2-0LQ" secondAttribute="trailing" id="US5-2x-aJV"/>
-                            <constraint firstItem="Zfj-L2-0LQ" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="34" id="Yho-h4-qAq"/>
+                            <constraint firstItem="Zfj-L2-0LQ" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="Yho-h4-qAq"/>
                             <constraint firstItem="Zfj-L2-0LQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jU1-hO-nWJ"/>
                             <constraint firstItem="Zfj-L2-0LQ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="mbV-SG-Ach"/>
                         </constraints>
